@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: kc-gestao
+    env: node
+    region: oregon
+    plan: free
+    buildCommand: npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+    disk:
+      name: kc-gestao-data
+      mountPath: /opt/render/project/src/backend/data
+      sizeGB: 1
